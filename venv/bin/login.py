@@ -39,7 +39,7 @@ def checking_login(username, password):
     for usuario in user_list:
         if usuario.dni == username:
             if usuario.password == password:
-                message = "Bienvenido " + usuario.name
+                message = "Bienvenido/a " + usuario.name
             else:
                 message = "Password equivocada"
             break
