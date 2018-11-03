@@ -4,6 +4,11 @@ from user import Usuario
 
 user_list = list() #usuarios
 
+test_user = Usuario(['Renato Postigo', '71929342', 'renato.postigo@ucsp.edu.pe',
+                     '1234', '1234'])
+
+user_list.append(test_user)
+
 def raise_frame(frame):
     frame.tkraise()
 
