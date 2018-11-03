@@ -1,11 +1,12 @@
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
+import duenho
 
 user_list = list() #usuarios
 
 test_user = Usuario(['Renato Postigo', '71929342', 'renato.postigo@ucsp.edu.pe',
-                     '1234', '1234'])
+                     'Vacas y guano', '1234'])
 
 user_list.append(test_user)
 
@@ -28,7 +29,7 @@ def create_user(l1, root): #root is tk()
     tkinter.messagebox.showinfo(str(l1[0]), "Cuenta creada.")
     create_login(root)
 
-def checking_login(username, password):
+def checking_login(username, password, root):
     """
     if (password == ""):
         new_pass = "Ingresa algo pe."
@@ -45,6 +46,7 @@ def checking_login(username, password):
         if usuario.dni == username:
             if usuario.password == password:
                 message = "Bienvenido/a " + usuario.name
+                temp_user = usuario
             else:
                 message = "Password equivocada"
             break
@@ -52,6 +54,8 @@ def checking_login(username, password):
             message = "Has sido hackeado, tu password es " + password
 
     tkinter.messagebox.showinfo("Login", message)
+    duenho.visualizar_datos_duenho(root, temp_user)
+    #duenho.visualizar_datos_fundo(root, temp_user)
 
 def create_account(root):
     #my_login.destroy()
@@ -141,7 +145,8 @@ def create_login(root):
     password_input.grid(column = 1, row = 1)
 
     login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),
-                                                                                     password_input.get()))
+                                                                                     password_input.get(),
+                                                                                     root))
     #login_button.pack()
     login_button.grid(column = 0, row = 2)
 
