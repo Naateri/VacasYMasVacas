@@ -1,16 +1,15 @@
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
-<<<<<<< HEAD
+
 import duenho
-=======
+
 import menu
->>>>>>> 1f835e8e5b2c0315fcb2b48510f36540e1d300f8
+
 
 user_list = list() #usuarios
-test_user = Usuario(['Renato Postigo','1234','renato@gg.com','0000','0000'])
 
-test_user = Usuario(['Renato Postigo', '71929342', 'renato.postigo@ucsp.edu.pe',
+test_user = Usuario(['Renato Postigo', '5678', 'renato.postigo@ucsp.edu.pe',
                      'Vacas y guano', '1234'])
 
 user_list.append(test_user)
@@ -34,7 +33,7 @@ def create_user(l1, root): #root is tk()
     tkinter.messagebox.showinfo(str(l1[0]), "Cuenta creada.")
     create_login(root)
 
-<<<<<<< HEAD
+
 def checking_login(username, password, root):
     """
     if (password == ""):
@@ -48,9 +47,8 @@ def checking_login(username, password, root):
     tkinter.messagebox.showinfo("Hola manito", "Has sido jakeado, tu usuario es " + new_user
      + ", tu password es: " + new_pass)
      """
-=======
+
 def checking_login(username, password,root):
->>>>>>> 1f835e8e5b2c0315fcb2b48510f36540e1d300f8
     for usuario in user_list:
         if usuario.dni == username:
             if usuario.password == password:
@@ -61,17 +59,14 @@ def checking_login(username, password,root):
             break
         else:
             message = "Has sido hackeado, tu password es " + password
-
-<<<<<<< HEAD
     tkinter.messagebox.showinfo("Login", message)
     duenho.visualizar_datos_duenho(root, temp_user)
     #duenho.visualizar_datos_fundo(root, temp_user)
-=======
+
 
     #tkinter.messagebox.showinfo("Login", message)
     menu.create_menu(root)
 
->>>>>>> 1f835e8e5b2c0315fcb2b48510f36540e1d300f8
 
 def create_account(root):
     #my_login.destroy()
@@ -161,13 +156,10 @@ def create_login(root):
     #password_input.pack(side = RIGHT)
     password_input.grid(column = 1, row = 1)
 
-<<<<<<< HEAD
-    login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),
-                                                                                     password_input.get(),
-                                                                                     root))
-=======
+    #login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),
+
     login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),password_input.get(),root))
->>>>>>> 1f835e8e5b2c0315fcb2b48510f36540e1d300f8
+
     #login_button.pack()
     login_button.grid(column = 0, row = 2)
 
