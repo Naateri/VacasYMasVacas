@@ -27,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="45">
               <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -45,36 +45,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/bin/menu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2085">
-              <caret line="336" lean-forward="true" selection-start-line="336" selection-end-line="336" />
+            <state relative-caret-position="7620">
+              <caret line="532" lean-forward="true" selection-start-line="532" selection-end-line="532" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#3877#6054#0" />
-                <element signature="e#3229#3872#0" />
-                <element signature="e#3897#4862#0" />
-                <element signature="e#4887#5407#0" />
-                <element signature="e#5432#6561#0" />
-                <element signature="e#6586#7597#0" />
-                <element signature="e#7622#8075#0" />
-                <element signature="e#8100#8840#0" />
-                <element signature="e#11401#12650#0" />
-                <element signature="e#12686#12763#0" />
-                <element signature="e#12915#13621#0" />
-                <element signature="e#13645#13729#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/vacas.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/venv/bin/fichas.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-144">
+              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/duenho.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="120">
               <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -299,7 +291,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/duenho.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="120">
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -312,7 +304,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="45">
           <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -326,22 +318,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/menu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="336" lean-forward="true" selection-start-line="336" selection-end-line="336" />
+        <state relative-caret-position="7620">
+          <caret line="532" lean-forward="true" selection-start-line="532" selection-end-line="532" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#3877#6054#0" />
-            <element signature="e#3229#3872#0" />
-            <element signature="e#3897#4862#0" />
-            <element signature="e#4887#5407#0" />
-            <element signature="e#5432#6561#0" />
-            <element signature="e#6586#7597#0" />
-            <element signature="e#7622#8075#0" />
-            <element signature="e#8100#8840#0" />
-            <element signature="e#11401#12650#0" />
-            <element signature="e#12686#12763#0" />
-            <element signature="e#12915#13621#0" />
-            <element signature="e#13645#13729#0" />
           </folding>
         </state>
       </provider>
