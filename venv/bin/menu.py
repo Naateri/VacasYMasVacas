@@ -3,7 +3,45 @@ import tkinter.messagebox
 from user import Usuario
 import duenho
 import sys
+import vacas
+from vacas import Vaca
+import fichas
 
+vaca_list = list() #vacas
+test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V721314'])
+test_vaca1 = Vaca(['V722502','Vaca','Holstein','Hembra','09/09/1940','V721702','V121314'])
+test_vaca2 = Vaca(['V731502','Toro','Holstein','Hembra','07/12/1978','V721702','V121314'])
+test_vaca3 = Vaca(['V789718','Toro','Holstein','Macho','01/10/1913','V721749','V121589'])
+test_vaca4 = Vaca(['V145574','Vaca','Holstein','Macho','02/07/1950','V721705','V121485'])
+
+vaca_list.append(test_vaca)
+vaca_list.append(test_vaca1)
+vaca_list.append(test_vaca2)
+vaca_list.append(test_vaca3)
+vaca_list.append(test_vaca4)
+
+
+def buscar_vaca(id): #returns index
+    for i in range( len(vaca_list)):
+        if (vaca_list[i].nro_arete == id):
+            return i
+
+def buscar_vaca_retvaca(id):
+    for vaca in vaca_list:
+        if (vaca.nro_arete == id):
+            return vaca
+
+def mod_pesos(id_vaca, le_list):
+    vaquita = buscar_vaca(id_vaca)
+    #vacaa = vaca_list[vaquita]
+    vaca_list[vaquita].modify_weight(le_list)
+    print ('vaquita peso destete: ' + vaca_list[vaquita].ficha_peso.destete)
+
+def create_vaca(l1, root): #root is tk()
+    la_vaca = Vaca(l1)
+    vaca_list.append(la_vaca)
+    tkinter.messagebox.showinfo(str(l1[0]), "Vaca creada")
+    print('Vaca arete:' + vaca_list[len(vaca_list) - 1].nro_arete + ', especie: ' + la_vaca.especie)
 
 def raise_frame(frame):
     frame.tkraise()
@@ -40,22 +78,28 @@ def add_info(root):
     fecha = Label(add_info, text="Fecha de nacimiento: ")
     fecha.grid(column=0, row=4)
 
-    fecha_input = Entry(add_info, show="*")
+    fecha_input = Entry(add_info)
     fecha_input.grid(column=1, row=4)
 
     aretema = Label(add_info, text="Nro de arete de la madre: ")
     aretema.grid(column=0, row=5)
 
-    aretema_input = Entry(add_info, show="*")
+    aretema_input = Entry(add_info)
     aretema_input.grid(column=1, row=5)
 
-   # btn_confirm = Button(add_info, text="Confirmar", command=lambda: create_user(
-    #    [arete_input.get(), especie_input.get(), raza_input.get(), sexo_input.get(),
-    #     fecha_input.get(), aretema_input.get()], root))
-    #btn_confirm.grid(column=1, row=7)
+    aretepa = Label(add_info, text="Nro de arete del padre: ")
+    aretepa.grid(column=0, row=6)
 
-    btn_regresar = Button(add_info, text="Regresar", command=lambda:create_addmenu(root))
-    btn_regresar.grid(column=0, row=6)
+    aretepa_input = Entry(add_info)
+    aretepa_input.grid(column=1, row=6)
+
+    btn_confirm = Button(add_info, text="Crear", command=lambda: create_vaca(
+        [arete_input.get(), especie_input.get(), raza_input.get(), sexo_input.get(),
+         fecha_input.get(), aretema_input.get(), aretepa_input.get()], root))
+    btn_confirm.grid(column=0, row=7)
+
+    btn_regresar = Button(add_info, text="Regresar", command=lambda: create_addmenu(root))
+    btn_regresar.grid(column=1, row=7)
 
     raise_frame(add_info)
 
@@ -64,7 +108,7 @@ def add_peso(root):
     add_peso.grid(column=0, row=0, sticky="nsew")
     root.title("Crear bovino")
 
-    nacimiento = Label(add_peso, text="Número de nacimiento: ")
+    nacimiento = Label(add_peso, text="Id vaca: ")
     nacimiento.grid(column=0, row=0)
 
     nacimiento_input = Entry(add_peso)
@@ -94,20 +138,83 @@ def add_peso(root):
     faenado_input = Entry(add_peso, show="*")
     faenado_input.grid(column=1, row=4)
 
-
-    # btn_confirm = Button(add_peso, text="Confirmar", command=lambda: create_user(
-    #    [nacimiento_input.get(), destete_input.get(), anho_input.get(), dos_input.get(),
-    #     faenado_input.get(), nacimientoma_input.get()], root))
-    # btn_confirm.grid(column=1, row=7)
-
     btn_regresar = Button(add_peso, text="Regresar", command=lambda: create_addmenu(root))
     btn_regresar.grid(column=0, row=6)
 
+    btn_crear = Button(add_peso, text='Agregar Peso', command=lambda: mod_pesos(nacimiento_input.get(), [destete_input.get(), anho_input.get(),
+                                                                                                         dos_input.get(), faenado_input.get()]))
+    btn_crear.grid(column=1,row=6)
+
     raise_frame(add_peso)
 
+
 def add_sanitaria(root):
-    # message = "Visualizar Menu"
-    tkinter.messagebox.showinfo("Añadir Sanitaria ","Agregando ficha sanitaria del Bovino")
+    add_sanitaria = Frame(root)
+    add_sanitaria.grid(column=0, row=0, sticky="nsew")
+    root.title("Añadir ficha sanitaria")
+    arete = Label(add_sanitaria, text="Número de arete: ")
+    arete.grid(column=0, row=0)
+
+    arete_input = Entry(add_sanitaria)
+    arete_input.grid(column=1, row=0)
+
+    fecha = Label(add_sanitaria, text="Fecha: ")
+    fecha.grid(column=0, row=1)
+
+    fecha_input = Entry(add_sanitaria)
+    fecha_input.grid(column=1, row=1)
+
+    signos = Label(add_sanitaria, text="Signos clínicos: ")
+    signos.grid(column=0, row=2)
+
+    signos_input = Entry(add_sanitaria)
+    signos_input.grid(column=1, row=2)
+
+    peso = Label(add_sanitaria, text="Peso /condición corporal : ")
+    peso.grid(column=0, row=3)
+
+    peso_input = Entry(add_sanitaria)
+    peso_input.grid(column=1, row=3)
+
+    temp = Label(add_sanitaria, text="Temperatura: ")
+    temp.grid(column=0, row=4)
+
+    temp_input = Entry(add_sanitaria)
+    temp_input.grid(column=1, row=4)
+
+    frecuencia = Label(add_sanitaria, text="Frecuencia cardiáca : ")
+    frecuencia.grid(column=0, row=5)
+
+    frecuencia_input = Entry(add_sanitaria)
+    frecuencia_input.grid(column=1, row=5)
+
+    tratamiento = Label(add_sanitaria, text="Tratamiento: ")
+    tratamiento.grid(column=0, row=6)
+
+    tratamiento_input = Entry(add_sanitaria)
+    tratamiento_input.grid(column=1, row=6)
+
+    diagnostico = Label(add_sanitaria, text="Diagnóstico: ")
+    diagnostico.grid(column=0, row=7)
+
+    diagnostico_input = Entry(add_sanitaria)
+    diagnostico_input.grid(column=1, row=7)
+
+    observaciones = Label(add_sanitaria, text="Observaciones: ")
+    observaciones.grid(column=0, row=8)
+
+    observaciones_input = Entry(add_sanitaria)
+    observaciones_input.grid(column=1, row=8)
+
+    # btn_confirm = Button(add_sanitaria, text="Confirmar", command=lambda: create_user(
+    #    [arete_input.get(), fecha_input.get(), signos_input.get(), peso_input.get(),
+    #     temp_input.get(), aretema_input.get()], root))
+    # btn_confirm.grid(column=1, row=7)
+
+    btn_regresar = Button(add_sanitaria, text="Regresar", command=lambda: create_menu(root))
+    btn_regresar.grid(column=0, row=9)
+
+    raise_frame(add_sanitaria)
 
 def create_addmenu(root) :
    my_addmenu = Frame(root)

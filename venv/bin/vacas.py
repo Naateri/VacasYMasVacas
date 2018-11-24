@@ -1,3 +1,7 @@
+from fichas import Peso
+
+vaca_list = list();
+
 class Vaca():
     def __init__(self, list):
         self.nro_arete = list[0]
@@ -7,9 +11,10 @@ class Vaca():
         self.fecha_ncto = list[4]
         self.nro_arete_madre = list[5]
         self.nro_arete_padre = list[6]
-        self.edad_destete = list[7]
-        self.peso_destete = list[8]
-        self.fecha_venta = list[9]
-        self.fecha_cambio = list[10]
-        self.fecha_muerte = list[11]
-        
+        self.ficha_peso = Peso(self.fecha_ncto)
+
+    def modify_weight(self, another_list):
+        self.ficha_peso.destete = another_list[0]
+        self.ficha_peso.anho = another_list[1]
+        self.ficha_peso.two_years = another_list[2]
+        self.ficha_peso.faenado = another_list[3]
