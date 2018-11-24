@@ -5,7 +5,7 @@ import duenho
 import sys
 import vacas
 from vacas import Vaca
-vaca_list = list() #usuarios
+vaca_list = list()
 test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V721314'])
 test_vaca1 = Vaca(['V722502','Guillermo','Holstein','Undefined','09/09/1940','V721702','V121314'])
 test_vaca2 = Vaca(['V731502','Guillermito','Holstein','Hembrita','07/12/1978','V721702','V121314'])
