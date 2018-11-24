@@ -1,8 +1,11 @@
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
+import menu
 
 user_list = list() #usuarios
+test_user = Usuario(['Renato Postigo','1234','renato@gg.com','mi super fundo ammigo','0000'])
+user_list.append(test_user)
 
 def raise_frame(frame):
     frame.tkraise()
@@ -23,30 +26,26 @@ def create_user(l1, root): #root is tk()
     tkinter.messagebox.showinfo(str(l1[0]), "Cuenta creada.")
     create_login(root)
 
-def checking_login(username, password):
-    """
-    if (password == ""):
-        new_pass = "Ingresa algo pe."
-    else:
-        new_pass = password
-    if (username == ""):
-        new_user = "No seas tonto."
-    else:
-        new_user = username
-    tkinter.messagebox.showinfo("Hola manito", "Has sido jakeado, tu usuario es " + new_user
-     + ", tu password es: " + new_pass)
-     """
+def checking_login(username, password,root):
     for usuario in user_list:
         if usuario.dni == username:
             if usuario.password == password:
                 message = "Bienvenido/a " + usuario.name
+
+                usuario1 = usuario
+                tkinter.messagebox.showinfo("Login", message)
+                menu.create_menu(root, usuario)
+
             else:
                 message = "Password equivocada"
             break
         else:
             message = "Has sido hackeado, tu password es " + password
 
-    tkinter.messagebox.showinfo("Login", message)
+
+    #tkinter.messagebox.showinfo("Login", message)
+    #menu.create_menu(root)
+
 
 def create_account(root):
     #my_login.destroy()
@@ -102,6 +101,7 @@ def create_account(root):
     raise_frame(account_creation)
 
 
+
 def create_login(root):
 
     my_login = Frame(root)
@@ -135,8 +135,7 @@ def create_login(root):
     #password_input.pack(side = RIGHT)
     password_input.grid(column = 1, row = 1)
 
-    login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),
-                                                                                     password_input.get()))
+    login_button = Button(my_login, text="Ingresar", command = lambda:checking_login(user_input.get(),password_input.get(),root))
     #login_button.pack()
     login_button.grid(column = 0, row = 2)
 
@@ -144,6 +143,5 @@ def create_login(root):
     register_button.grid(column = 0, row = 3)
 
     raise_frame(my_login)
-
 #top = Tk()
 #top.mainloop()
