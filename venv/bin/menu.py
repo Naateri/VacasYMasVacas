@@ -423,45 +423,107 @@ def see_san(root):
     login_button = Button(my_seeinvmenu, text="Ingresar", command=lambda: see_sanitario(user_input.get(), root))
     # login_button.pack()
     login_button.grid(column=0, row=2)
+
+def see_ficha(id_vaca,root):
+    my_seeficha = Frame(root)
+    my_seeficha.grid(column=0, row=0, sticky="nsew")
+    vaquita = buscar_vaca_retvaca(id_vaca)
+    arete = Label(my_seeficha, text="Número de arete: ")
+    arete.grid(column=0, row=0)
+
+    arete1 = Label(my_seeficha, text=vaquita.nro_arete)
+    arete1.grid(column=1, row=0)
+
+    especie = Label(my_seeficha, text="Especie: ")
+    especie.grid(column=0, row=1)
+
+    especie1 = Label(my_seeficha, text=vaquita.especie)
+    especie1.grid(column=1, row=1)
+
+    raza = Label(my_seeficha, text="Raza: ")
+    raza.grid(column=0, row=2)
+
+    raza1 = Label(my_seeficha, text=vaquita.raza)
+    raza1.grid(column=1, row=2)
+
+    sexo = Label(my_seeficha, text="Sexo: ")
+    sexo.grid(column=0, row=3)
+
+    sexo1 = Label(my_seeficha, text=vaquita.sexo)
+    sexo1.grid(column=1, row=3)
+
+    fecha = Label(my_seeficha, text="Fecha de nacimiento: ")
+    fecha.grid(column=0, row=4)
+
+    fecha1 = Label(my_seeficha, text=vaquita.fecha_ncto)
+    fecha1.grid(column=1, row=4)
+
+    aretema = Label(my_seeficha, text="Nro de arete de la madre: ")
+    aretema.grid(column=0, row=5)
+
+    aretema1 = Label(my_seeficha, text=vaquita.nro_arete_madre)
+    aretema1.grid(column=1, row=5)
+
+    aretepa = Label(my_seeficha, text="Nro de arete del padre: ")
+    aretepa.grid(column=0, row=6)
+
+    aretepa_input = Label(my_seeficha, text=vaquita.nro_arete_padre)
+    aretepa_input.grid(column=1, row=6)
+
+    btn_regresar = Button(my_seeficha, text="Regresar", command=lambda: create_seemenu(root))
+    btn_regresar.grid(column=0, row=7)
+
+def see_peso(id_vaca,root):
+    my_seeficha2 = Frame(root)
+    my_seeficha2.grid(column=0, row=0, sticky="nsew")
+    vaquita = buscar_vaca_retvaca(id_vaca)
+    arete = Label(my_seeficha2, text="Destete: ")
+    arete.grid(column=0, row=0)
+
+    arete1 = Label(my_seeficha2, text=vaquita.ficha_peso.destete)
+    arete1.grid(column=1, row=0)
+
+    especie = Label(my_seeficha2, text="Año: ")
+    especie.grid(column=0, row=1)
+
+    especie1 = Label(my_seeficha2, text=vaquita.ficha_peso.anho)
+    especie1.grid(column=1, row=1)
+
+    raza = Label(my_seeficha2, text="Dos Años: ")
+    raza.grid(column=0, row=2)
+
+    raza1 = Label(my_seeficha2, text=vaquita.ficha_peso.two_years)
+    raza1.grid(column=1, row=2)
+
+    sexo = Label(my_seeficha2, text="Faenado: ")
+    sexo.grid(column=0, row=3)
+
+    sexo1 = Label(my_seeficha2, text=vaquita.ficha_peso.faenado)
+    sexo1.grid(column=1, row=3)
+
+    btn_regresar = Button(my_seeficha2, text="Regresar", command=lambda: create_seemenu(root))
+    btn_regresar.grid(column=0, row=4)
+
+
 def see_inf(root):
     my_seeinfmenu = Frame(root)
     my_seeinfmenu.grid(column=0, row=0, sticky="nsew")
     root.title("Fichas Informativas del Ganado")
 
-    num= Label( my_seeinfmenu, text="Número de Arete")
-    num.grid(column=0, row=0)
+    arete = Label(my_seeinfmenu, text="Número de arete: ")
+    arete.grid(column=0, row=0)
 
-    ficha_num = Label( my_seeinfmenu,text="Ficha del Bovino" )
-    ficha_num.grid(column=1, row=0)
+    arete_input = Entry(my_seeinfmenu)
+    arete_input.grid(column=1, row=0)
+
+    btn_ficha = Button(my_seeinfmenu, text="Ficha del Bovino", command=lambda: see_ficha(arete_input.get(),root))
+    btn_ficha.grid(column=0, row=1)
+
+    btn_ficha1 = Button(my_seeinfmenu, text="Peso del Bovino", command=lambda: see_peso(arete_input.get(), root))
+    btn_ficha1.grid(column=1, row=1)
 
     btn_regresar = Button(my_seeinfmenu, text="Regresar", command=lambda: create_seemenu(root))
-    btn_regresar.grid(column=0, row=1)
-
-def see_cos(root):
-    my_seecosmenu = Frame(root)
-    my_seecosmenu.grid(column=0, row=0, sticky="nsew")
-    root.title("Registro de Costos")
-
-    c1 = Label(  my_seecosmenu, text="Cantidad")
-    c1.grid(column=0, row=0)
-
-    c2 = Label( my_seecosmenu,text="Descripción" )
-    c2.grid(column=1, row=0)
-
-    c3 = Label( my_seecosmenu,text="Fecha" )
-    c3.grid(column=2, row=0)
-
-    c4 = Label(my_seecosmenu, text="Costo Unitario")
-    c4.grid(column=3, row=0)
-
-    c5 = Label(my_seecosmenu, text="Costo Total")
-    c5.grid(column=4, row=0)
-
-    c6 = Label(my_seecosmenu, text="Tipo de Documento")
-    c6.grid(column=5, row=0)
-
-    btn_regresar = Button( my_seecosmenu, text="Regresar", command=lambda: create_seemenu(root))
-    btn_regresar.grid(column=0, row=1)
+    btn_regresar.grid(column=0, row=2)
 
 def see_venani(root):
     my_venmenu = Frame(root)

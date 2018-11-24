@@ -1,4 +1,3 @@
-
 class Sanitaria():
 
     def __init__(self, arete):
