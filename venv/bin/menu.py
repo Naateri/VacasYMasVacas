@@ -37,6 +37,21 @@ def mod_pesos(id_vaca, le_list):
     vaca_list[vaquita].modify_weight(le_list)
     print ('vaquita peso destete: ' + vaca_list[vaquita].ficha_peso.destete)
 
+def get_machos():
+    machos = 0
+    for vaca in vaca_list:
+        if vaca.sexo == 'Macho':
+            machos += 1
+
+    return machos
+
+def get_hembras():
+    hembras = 0
+    for vaca in vaca_list:
+        if vaca.sexo == 'Hembra':
+            hembras += 1
+    return hembras
+
 def create_vaca(l1, root): #root is tk()
     la_vaca = Vaca(l1)
     vaca_list.append(la_vaca)
@@ -241,25 +256,25 @@ def see_inv(root):
     hemc= Label( my_seeinvmenu, text="Número de Crías Hembras: ")
     hemc.grid(column=0, row=0)
 
-    hemc_num = Label( my_seeinvmenu,text="150" )
+    hemc_num = Label( my_seeinvmenu,text="No se puede saber porque no" )
     hemc_num.grid(column=1, row=0)
 
     macc = Label(my_seeinvmenu, text="Número de Crías Machos: ")
     macc.grid(column=0, row=1)
 
-    macc_num = Label(my_seeinvmenu, text="150")
+    macc_num = Label(my_seeinvmenu, text="No se puede saber porque no")
     macc_num.grid(column=1, row=1)
 
     hem = Label(my_seeinvmenu, text="Número de Hembras: ")
     hem.grid(column=0, row=2)
 
-    hem_num = Label(my_seeinvmenu, text="500")
+    hem_num = Label(my_seeinvmenu, text=get_hembras())
     hem_num.grid(column=1, row=2)
 
     mac = Label(my_seeinvmenu, text="Número de Machos: ")
     mac.grid(column=0, row=3)
 
-    mac_num = Label(my_seeinvmenu, text="300")
+    mac_num = Label(my_seeinvmenu, text=get_machos())
     mac_num.grid(column=1, row=3)
 
     btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
