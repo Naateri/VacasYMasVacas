@@ -1,14 +1,44 @@
+
 class Sanitaria():
-    def __init__(self, list):
-        self.nro_arete = list[0]
-        self.fecha = list[1]
-        self.signos = list[2]
-        self.peso = list[3]
-        self.temperatura = list[4]
-        self.frecuencia = list[5]
-        self.tratamiento = list[6]
-        self.diagnostico = list[7]
-        self.observaciones = list[8]
+
+    def __init__(self, arete):
+        self.nro_arete = arete
+        self.fecha = 0
+        self.signos = 0
+        self.peso = 0
+        self.temperatura = 0
+        self.frecuencia = 0
+        self.tratamiento = 0
+        self.diagnostico = 0
+        self.observaciones = 0
+
+    def modify_sanitaria(self, num, sanitaria):
+        if (num == 0):
+            self.fecha = sanitaria
+        elif (num == 1):
+            self.signos = sanitaria
+        elif (num == 2):
+            self.peso = sanitaria
+        elif (num == 3):
+            self.temperatura = sanitaria
+        elif (num == 4):
+            self.frecuencia = sanitaria
+        elif (num == 5):
+            self.tratamiento = sanitaria
+        elif (num == 6):
+            self.diagnostico = sanitaria
+        else:
+            self.observaciones = sanitaria
+
+    def set_sanitaria(self, list):
+        self.fecha = list[0]
+        self.signos = list[1]
+        self.peso = list[2]
+        self.temperatura = list[3]
+        self.frecuencia = list[4]
+        self.tratamiento = list[5]
+        self.diagnostico = list[6]
+        self.observaciones = list[7]
 
 
 class Productiva():
@@ -59,7 +89,12 @@ productiva_list = list();
 reproductiva_list = list();
 peso_list = list(); #No_need
 
-reg_sanitario = Sanitaria(['V724502','09/09/2017','ninguno','35','45','120','leche fria','va a mejorar','la vaca esta bien'])
+reg_sanitario = Sanitaria('V724502')
+reg_sanitario.set_sanitaria(['09/09/2017','ninguno','35','45','120','leche fria','va a mejorar','la vaca esta bien'])
 sanitaria_list.append(reg_sanitario)
-reg_sanitario = Sanitaria(['V731502','09/09/2017','ninguno','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+reg_sanitario = Sanitaria('V731502')
+reg_sanitario.set_sanitaria(['09/09/2017','ninguno','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+sanitaria_list.append(reg_sanitario)
+reg_sanitario = Sanitaria('V731502')
+reg_sanitario.set_sanitaria(['09/10/2017','ninguno','37','60','120','ni leche lo va a salvar','no va a mejorar','le doy un día de vida'])
 sanitaria_list.append(reg_sanitario)
