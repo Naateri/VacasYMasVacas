@@ -53,6 +53,13 @@ def mod_pesos(id_vaca, le_list):
     vaca_list[vaquita].modify_weight(le_list)
     print ('vaquita peso destete: ' + vaca_list[vaquita].ficha_peso.destete)
 
+def mod_sanitaria(id_vaca, le_list):
+    vaquita = buscar_vaca(id_vaca)
+    vaca_list[vaquita].modify_sanitaria(le_list)
+    fichas.sanitaria_list.append(vaca_list[vaquita].ficha_sanitaria)
+    print ('Ficha Sanitaria ' + vaca_list[vaquita].ficha_sanitaria.fecha)
+
+
 def create_vaca(l1, root): #root is tk()
     la_vaca = Vaca(l1)
     vaca_list.append(la_vaca)
@@ -151,14 +158,14 @@ def add_peso(root):
     faenado = Label(add_peso, text="Faenado: ")
     faenado.grid(column=0, row=4)
 
-    faenado_input = Entry(add_peso, show="*")
+    faenado_input = Entry(add_peso)
     faenado_input.grid(column=1, row=4)
 
     btn_regresar = Button(add_peso, text="Regresar", command=lambda: create_addmenu(root))
     btn_regresar.grid(column=0, row=6)
 
-    btn_crear = Button(add_peso, text='Agregar Peso', command=lambda: mod_pesos(nacimiento_input.get(), [destete_input.get(), anho_input.get(),
-                                                                                                         dos_input.get(), faenado_input.get()]))
+    btn_crear = Button(add_peso, text='Agregar Peso', command=lambda: mod_pesos(nacimiento_input.get(),
+    [destete_input.get(), anho_input.get(),dos_input.get(), faenado_input.get()]))
     btn_crear.grid(column=1,row=6)
 
     raise_frame(add_peso)
@@ -222,13 +229,13 @@ def add_sanitaria(root):
     observaciones_input = Entry(add_sanitaria)
     observaciones_input.grid(column=1, row=8)
 
-    # btn_confirm = Button(add_sanitaria, text="Confirmar", command=lambda: create_user(
-    #    [arete_input.get(), fecha_input.get(), signos_input.get(), peso_input.get(),
-    #     temp_input.get(), aretema_input.get()], root))
-    # btn_confirm.grid(column=1, row=7)
+    btn_crear = Button(add_sanitaria, text='Agregar Información Sanitaria', command=lambda: mod_sanitaria(arete_input.get(),
+    [fecha_input.get(), peso_input.get(), signos_input.get(), temp_input.get(),
+    frecuencia_input.get(),tratamiento_input.get(),diagnostico_input.get(),observaciones_input.get()]))
+    btn_crear.grid(column=0,row=9)
 
     btn_regresar = Button(add_sanitaria, text="Regresar", command=lambda: create_menu(root))
-    btn_regresar.grid(column=0, row=9)
+    btn_regresar.grid(column=1, row=9)
 
     raise_frame(add_sanitaria)
 
