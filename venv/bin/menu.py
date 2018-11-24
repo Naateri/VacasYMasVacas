@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
@@ -445,7 +445,7 @@ def create_menu(root):
 
     btn_exit= Button(my_menu, text="Cerrar", command = lambda:exit(root))
     btn_exit.grid(column = 0, row = 5)
-=======
+
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
@@ -892,5 +892,5 @@ def create_menu(root):
 
     btn_exit= Button(my_menu, text="Cerrar", command = lambda:exit(root))
     btn_exit.grid(column = 0, row = 5)
->>>>>>> 870d2437ef76cd74f34e30c83b8179b887e1f04e
+
     raise_frame(my_menu)
