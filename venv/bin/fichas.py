@@ -59,7 +59,13 @@ productiva_list = list();
 reproductiva_list = list();
 peso_list = list(); #No_need
 
-reg_sanitario = Sanitaria(['V724502','09/09/2017','ninguno','35','45','120','leche fria','va a mejorar','la vaca esta bien'])
+reg_sanitario = Sanitaria(['V724502','09/09/2017','ninguno1','35','45','120','leche fria','va a mejorar','la vaca esta bien'])
 sanitaria_list.append(reg_sanitario)
-reg_sanitario = Sanitaria(['V731502','09/09/2017','ninguno','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+reg_sanitario = Sanitaria(['V731502','09/09/2017','ninguno2','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+sanitaria_list.append(reg_sanitario)
+reg_sanitario = Sanitaria(['V731501','09/09/2017','ninguno3','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+sanitaria_list.append(reg_sanitario)
+reg_sanitario = Sanitaria(['V731502','09/09/2017','ninguno4','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
+sanitaria_list.append(reg_sanitario)
+reg_sanitario = Sanitaria(['V731503','09/09/2017','ninguno5','37','60','120','leche caliente','no va a mejorar','la vaca va a morir pronto'])
 sanitaria_list.append(reg_sanitario)

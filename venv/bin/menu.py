@@ -338,40 +338,79 @@ def see_rep(root):
     btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
     btn_regresar.grid(column=0, row=1)
 
-def see_san(root):
+def see_san(id, root):
     my_seeinvmenu = Frame(root)
     my_seeinvmenu.grid(column=0, row=0, sticky="nsew")
     root.title("Reporte Sanitario del Ganado")
 
-    c1 = Label(my_seeinvmenu, text="Número de Arete")
-    c1.grid(column=0, row=0)
+    my_vaca = buscar_vaca_retvaca(id)
 
-    c2 = Label(my_seeinvmenu, text="Fecha")
-    c2.grid(column=1, row=0)
+    i=0
+    j=1
+    for Sanitaria in fichas.sanitaria_list:
 
-    c3 = Label(my_seeinvmenu, text="Signos Clínicos")
-    c3.grid(column=2, row=0)
+        if id == Sanitaria.nro_arete:
+            c0 = Label(my_seeinvmenu, text="Ficha "+str(j))
+            c0.grid(column=0, row=i)
 
-    c4 = Label(my_seeinvmenu, text="Peso / Condición Corporal")
-    c4.grid(column=3, row=0)
-
-    c5 = Label(my_seeinvmenu, text="Temperatura")
-    c5.grid(column=4, row=0)
-
-    c6 = Label(my_seeinvmenu, text="Frecuencia Cardiáca")
-    c6.grid(column=5, row=0)
-
-    c7 = Label(my_seeinvmenu, text="Tratamiento")
-    c7.grid(column=6, row=0)
-
-    c8 = Label(my_seeinvmenu, text="Diagnóstico")
-    c8.grid(column=7, row=0)
-
-    c9 = Label(my_seeinvmenu, text="Observaciones")
-    c9.grid(column=8, row=0)
+            i = i+1
+            c2 = Label(my_seeinvmenu, text="Fecha")
+            c2.grid(column=0, row=i)
+            c12 = Label(my_seeinvmenu, text=Sanitaria.fecha)
+            c12.grid(column=1, row=i)
+            i = i+1
+            c3 = Label(my_seeinvmenu, text="Signos Clínicos")
+            c3.grid(column=0, row=i)
+            c13 = Label(my_seeinvmenu, text=Sanitaria.signos)
+            c13.grid(column=1, row=i)
+            i = i+1
+            c4 = Label(my_seeinvmenu, text="Peso / Condición Corporal")
+            c4.grid(column=0, row=i)
+            c14 = Label(my_seeinvmenu, text=Sanitaria.peso)
+            c14.grid(column=1, row=i)
+            i = i + 1
+            c5 = Label(my_seeinvmenu, text="Temperatura")
+            c5.grid(column=0, row=i)
+            c15 = Label(my_seeinvmenu, text=Sanitaria.temperatura)
+            c15.grid(column=1, row=i)
+            i = i + 1
+            c6 = Label(my_seeinvmenu, text="Frecuencia Cardiáca")
+            c6.grid(column=0, row=i)
+            c16 = Label(my_seeinvmenu, text=Sanitaria.temperatura)
+            c16.grid(column=1, row=i)
+            i = i + 1
+            c7 = Label(my_seeinvmenu, text="Tratamiento")
+            c7.grid(column=0, row=i)
+            c17 = Label(my_seeinvmenu, text=Sanitaria.tratamiento)
+            c17.grid(column=1, row=i)
+            i = i + 1
+            c8 = Label(my_seeinvmenu, text="Diagnóstico")
+            c8.grid(column=0, row=i)
+            c18 = Label(my_seeinvmenu, text=Sanitaria.diagnostico)
+            c18.grid(column=1, row=i)
+            i = i + 1
+            c9 = Label(my_seeinvmenu, text="Observaciones")
+            c9.grid(column=0, row=i)
+            c19 = Label(my_seeinvmenu, text=Sanitaria.observaciones)
+            c19.grid(column=1, row=i)
+            i = i+1
+            j = j+1
 
     btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
-    btn_regresar.grid(column=0, row=1)
+    btn_regresar.grid(column=0, row=i)
+
+def see_sanitario(root):
+    my_seeinvmenu = Frame(root)
+    my_seeinvmenu.grid(column=0, row=0, sticky="nsew")
+    user = Label(my_seeinvmenu, text="Usuario: ", relief=RAISED)
+
+    user.grid(column=0, row=0)
+
+    user_input = Entry(my_seeinvmenu)
+    user_input.grid(column=1, row=0)
+    login_button = Button(my_seeinvmenu, text="Ingresar", command=lambda: see_san(user_input.get(), root))
+    # login_button.pack()
+    login_button.grid(column=0, row=2)
 
 def see_inf(root):
     my_seeinfmenu = Frame(root)
@@ -513,7 +552,7 @@ def create_seemenu(root) :
     btn_seerep = Button(my_seemenu, text="Reporte Reproductivo", command=lambda: see_rep(root))
     btn_seerep.grid(column=0, row=2)
 
-    btn_seesan = Button(my_seemenu, text="Reporte Sanitario", command=lambda: see_san(root))
+    btn_seesan = Button(my_seemenu, text="Reporte Sanitarioo", command=lambda: see_sanitario(root))
     btn_seesan.grid(column=0, row=3)
 
     btn_seeinf = Button(my_seemenu, text="Ficha de Bovino", command=lambda: see_inf(root))
