@@ -410,8 +410,17 @@ def create_deletemenu(root) :
     tkinter.messagebox.showinfo("Creando", message)
 
 def create_findmenu(root) :
+    my_findmenu = Frame(root)
     message = "Buscar Menu"
-    tkinter.messagebox.showinfo("Creando", message)
+
+    user = Label(my_findmenu, text="Numero de arete: ", relief=RAISED)
+    user.grid(column=0, row=0)
+    num_arete_input = Entry(my_findmenu)
+    num_arete_input.grid(column=1, row=0)
+
+    login_button = Button(my_findmenu, text="Ingresar", command=lambda: find(num_arete_input.get(), root))
+    # login_button.pack()
+    login_button.grid(column=0, row=2)
 
 def create_infomenu(root, usuario) :
     #message = "Informacion Menu"
