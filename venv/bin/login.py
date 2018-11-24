@@ -3,10 +3,6 @@ import tkinter.messagebox
 from user import Usuario
 import menu
 
-user_list = list() #usuarios
-test_user = Usuario(['Renato Postigo','1234','renato@gg.com','mi super fundo ammigo','0000'])
-user_list.append(test_user)
-
 def raise_frame(frame):
     frame.tkraise()
 
@@ -22,12 +18,12 @@ def create_user(l1, root): #root is tk()
         tkinter.messagebox.showinfo("Revise passwords", "Las passwords no coinciden, vuelva a intentarlo.")
         return 0
     le_user = Usuario(l1)
-    user_list.append(le_user)
+    menu.user_list.append(le_user)
     tkinter.messagebox.showinfo(str(l1[0]), "Cuenta creada.")
     create_login(root)
 
 def checking_login(username, password,root):
-    for usuario in user_list:
+    for usuario in menu.user_list:
         if usuario.dni == username:
             if usuario.password == password:
                 message = "Bienvenido/a " + usuario.name
