@@ -7,12 +7,103 @@ def raise_frame(frame):
     frame.tkraise()
 
 def add_info(root):
-    #message = "Visualizar Menu"
-    tkinter.messagebox.showinfo("Añadir Información ","Agregando información del Bovino")
+    add_info = Frame(root)
+    add_info.grid(column=0, row=0, sticky="nsew")
+    root.title("Crear bovino")
+
+    arete = Label(add_info, text="Número de arete: ")
+    arete.grid(column = 0, row = 0)
+
+    arete_input = Entry(add_info)
+    arete_input.grid(column=1, row=0)
+
+    especie = Label(add_info, text="Especie: ")
+    especie.grid(column=0, row=1)
+
+    especie_input = Entry(add_info)
+    especie_input.grid(column=1, row=1)
+
+    raza = Label(add_info, text="Raza: ")
+    raza.grid(column=0, row=2)
+
+    raza_input = Entry(add_info)
+    raza_input.grid(column=1, row=2)
+
+    sexo = Label(add_info, text="Sexo: ")
+    sexo.grid(column=0, row=3)
+
+    sexo_input = Entry(add_info)
+    sexo_input.grid(column=1, row=3)
+
+    fecha = Label(add_info, text="Fecha de nacimiento: ")
+    fecha.grid(column=0, row=4)
+
+    fecha_input = Entry(add_info, show="*")
+    fecha_input.grid(column=1, row=4)
+
+    aretema = Label(add_info, text="Nro de arete de la madre: ")
+    aretema.grid(column=0, row=5)
+
+    aretema_input = Entry(add_info, show="*")
+    aretema_input.grid(column=1, row=5)
+
+   # btn_confirm = Button(add_info, text="Confirmar", command=lambda: create_user(
+    #    [arete_input.get(), especie_input.get(), raza_input.get(), sexo_input.get(),
+    #     fecha_input.get(), aretema_input.get()], root))
+    #btn_confirm.grid(column=1, row=7)
+
+    btn_regresar = Button(add_info, text="Regresar", command=lambda:create_addmenu(root))
+    btn_regresar.grid(column=0, row=6)
+
+    raise_frame(add_info)
 
 def add_peso(root):
-    # message = "Visualizar Menu"
-    tkinter.messagebox.showinfo("Añadir Peso ","Agregando peso del Bovino")
+    add_peso = Frame(root)
+    add_peso.grid(column=0, row=0, sticky="nsew")
+    root.title("Crear bovino")
+
+    nacimiento = Label(add_peso, text="Número de nacimiento: ")
+    nacimiento.grid(column=0, row=0)
+
+    nacimiento_input = Entry(add_peso)
+    nacimiento_input.grid(column=1, row=0)
+
+    destete = Label(add_peso, text="Destete: ")
+    destete.grid(column=0, row=1)
+
+    destete_input = Entry(add_peso)
+    destete_input.grid(column=1, row=1)
+
+    anho = Label(add_peso, text="Año: ")
+    anho.grid(column=0, row=2)
+
+    anho_input = Entry(add_peso)
+    anho_input.grid(column=1, row=2)
+
+    dos = Label(add_peso, text="Dos años: ")
+    dos.grid(column=0, row=3)
+
+    dos_input = Entry(add_peso)
+    dos_input.grid(column=1, row=3)
+
+    faenado = Label(add_peso, text="Faenado: ")
+    faenado.grid(column=0, row=4)
+
+    faenado_input = Entry(add_peso, show="*")
+    faenado_input.grid(column=1, row=4)
+
+
+    # btn_confirm = Button(add_peso, text="Confirmar", command=lambda: create_user(
+    #    [nacimiento_input.get(), destete_input.get(), anho_input.get(), dos_input.get(),
+    #     faenado_input.get(), nacimientoma_input.get()], root))
+    # btn_confirm.grid(column=1, row=7)
+
+    btn_regresar = Button(add_peso, text="Regresar", command=lambda: create_addmenu(root))
+    btn_regresar.grid(column=0, row=6)
+
+    raise_frame(add_peso)
+
+
 
 def add_sanitaria(root):
     # message = "Visualizar Menu"
