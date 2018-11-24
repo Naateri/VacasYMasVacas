@@ -1,8 +1,10 @@
 from tkinter import *
 import tkinter.messagebox
+import menu
 
-def volver(root):
+def volver(root, usuario):
     tkinter.messagebox.showinfo("Volver", "Volviendo al menu principal")
+    menu.create_menu(root,usuario)
 
 def visualizar_datos_duenho(root, usuario):
     datos_duenho = Frame(root)
@@ -33,7 +35,7 @@ def visualizar_datos_duenho(root, usuario):
     fundo_info = Label(datos_duenho, text=usuario.fundo_name)
     fundo_info.grid(column=1, row=3)
 
-    btn_back = Button(datos_duenho, text="Volver", command=lambda:volver(root))
+    btn_back = Button(datos_duenho, text="Volver", command=lambda:volver(root, usuario))
     btn_back.grid(column=0, row=4)
 
     datos_duenho.tkraise()
@@ -55,7 +57,7 @@ def visualizar_datos_fundo(root, usuario):
     ubicacion_info = Label(datos_fundo, text="Toroy")
     ubicacion_info.grid(column=1, row=1)
 
-    btn_back = Button(datos_fundo, text="Volver", command=lambda: volver(root))
+    btn_back = Button(datos_fundo, text="Volver", command=lambda: volver(root,usuario))
     btn_back.grid(column=0, row=4)
 
     datos_fundo.tkraise()
