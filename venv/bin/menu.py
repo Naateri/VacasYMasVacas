@@ -5,10 +5,10 @@ import duenho
 import sys
 import vacas
 from vacas import Vaca
-vaca_list = list() #usuarios
+vaca_list = list() #vacas
 test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V721314'])
-test_vaca1 = Vaca(['V722502','Guillermo','Holstein','Undefined','09/09/1940','V721702','V121314'])
-test_vaca2 = Vaca(['V731502','Guillermito','Holstein','Hembrita','07/12/1978','V721702','V121314'])
+test_vaca1 = Vaca(['V722502','Vaca','Holstein','Hembra','09/09/1940','V721702','V121314'])
+test_vaca2 = Vaca(['V731502','Toro','Holstein','Hembra','07/12/1978','V721702','V121314'])
 test_vaca3 = Vaca(['V789718','Toro','Holstein','Macho','01/10/1913','V721749','V121589'])
 test_vaca4 = Vaca(['V145574','Vaca','Holstein','Macho','02/07/1950','V721705','V121485'])
 
@@ -23,6 +23,7 @@ def create_vaca(l1, root): #root is tk()
     la_vaca = Vaca(l1)
     vaca_list.append(la_vaca)
     tkinter.messagebox.showinfo(str(l1[0]), "Vaca creada")
+    print('Vaca arete:' + vaca_list[len(vaca_list) - 1].nro_arete + ', especie: ' + la_vaca.especie)
 
 def raise_frame(frame):
     frame.tkraise()
