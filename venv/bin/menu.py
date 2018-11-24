@@ -244,6 +244,114 @@ def add_sanitaria(root):
 
     raise_frame(add_sanitaria)
 
+def mod_productivo(id_vaca, list):
+    reporte_productivo = fichas.Rep_Productivo(id_vaca)
+    reporte_productivo.modify_reporte(list)
+    fichas.productiva_list.append(reporte_productivo)
+    tkinter.messagebox.showinfo('agregado', 'Reporte Productivo agregado para la vaca' + str(id_vaca))
+
+def add_productivo(root):
+    add_sanitaria = Frame(root)
+    add_sanitaria.grid(column=0, row=0, sticky="nsew")
+    root.title("Añadir ficha productiva")
+    arete = Label(add_sanitaria, text="Número de arete: ")
+    arete.grid(column=0, row=0)
+
+    arete_input = Entry(add_sanitaria)
+    arete_input.grid(column=1, row=0)
+
+    litros = Label(add_sanitaria, text="Litros: ")
+    litros.grid(column=0, row=1)
+
+    litros_input = Entry(add_sanitaria)
+    litros_input.grid(column=1, row=1)
+
+    fecha = Label(add_sanitaria, text="Fecha: ")
+    fecha.grid(column=0, row=2)
+
+    fecha_input = Entry(add_sanitaria)
+    fecha_input.grid(column=1, row=2)
+
+    btn_crear = Button(add_sanitaria, text='Agregar Información Productiva', command=lambda: mod_prodcuctivo(arete_input.get(),
+    [litros_input.get(), fecha_input.get()]))
+    btn_crear.grid(column=0,row=3)
+
+    btn_regresar = Button(add_sanitaria, text="Regresar", command=lambda: create_menu(root))
+    btn_regresar.grid(column=1, row=3)
+
+    raise_frame(add_sanitaria)
+
+
+def real_add_produccion_bovino(id_vaca, valor):  # updates vaca
+    vaquita_index = buscar_vaca(id_vaca)
+    vaca_list[vaquita_index].modify_productiva(valor)
+    tkinter.messagebox.showinfo('Valor modificado', 'Valor modificado')
+
+def add_produccion_bovino(root):
+    my_add_prod = Frame(root)
+    my_add_prod.grid(column=0, row=0, sticky="nsew")
+    root.title('Añadir produccion bovino')
+
+    info_arete = Label(my_add_prod, text='Numero de arete: ')
+    info_arete.grid(column=0, row=0)
+
+    info_arete_input = Entry(my_add_prod)
+    info_arete_input.grid(column=1, row=0)
+
+    info_valor = Label(my_add_prod, text="Valor diario en litros")
+    info_valor.grid(column=0, row=1)
+
+    info_valor_input = Entry(my_add_prod)
+    info_valor_input.grid(column=1, row=1)
+
+    btn_modificar = Button(my_add_prod, text="modificar",
+                           command=lambda: real_add_produccion_bovino(info_arete_input.get(),
+                                                                      info_valor_input.get()))
+    btn_modificar.grid(column=1, row=2)
+
+    btn_regresar = Button(my_add_prod, text="Regresar", command=lambda: create_menu(root))
+    btn_regresar.grid(column=0, row=2)
+
+def real_add_reporte_productivo(id_vaca, valor):  # updates vaca
+    reg_productivo = fichas.Rep_Productivo(id_vaca)
+    reg_productivo.modify_reporte(valor)
+    fichas.productiva_list.append(reg_productivo)
+
+    tkinter.messagebox.showinfo('Reporte creado', 'Reporte creado')
+
+def add_reporte_productivo(root):
+    my_add_prod = Frame(root)
+    my_add_prod.grid(column=0, row=0, sticky="nsew")
+    root.title('Añadir reporte productivo')
+
+    info_arete = Label(my_add_prod, text='Numero de arete: ')
+    info_arete.grid(column=0, row=0)
+
+    info_arete_input = Entry(my_add_prod)
+    info_arete_input.grid(column=1, row=0)
+
+    info_valor = Label(my_add_prod, text="Litros")
+    info_valor.grid(column=0, row=1)
+
+    info_valor_input = Entry(my_add_prod)
+    info_valor_input.grid(column=1, row=1)
+
+    info_fecha = Label(my_add_prod, text="Fecha")
+    info_fecha.grid(column=0, row=2)
+
+    info_fecha_input = Entry(my_add_prod)
+    info_fecha_input.grid(column=1, row=2)
+
+    btn_modificar = Button(my_add_prod, text="modificar",
+                           command=lambda: real_add_reporte_productivo(info_arete_input.get(),
+                                                                      [info_valor_input.get(),info_fecha_input.get()]))
+    btn_modificar.grid(column=1, row=3)
+
+    btn_regresar = Button(my_add_prod, text="Regresar", command=lambda: create_menu(root))
+    btn_regresar.grid(column=0, row=3)
+
+
+
 def create_addmenu(root) :
    my_addmenu = Frame(root)
    my_addmenu.grid(column=0, row=0, sticky="nsew")
@@ -258,8 +366,15 @@ def create_addmenu(root) :
    btn_addsanitaria = Button(my_addmenu, text="Añadir Ficha Sanitaria", command=lambda: add_sanitaria(root))
    btn_addsanitaria.grid(column=0, row=2)
 
+   btn_addsanitaria = Button(my_addmenu, text="Añadir Produccion Bovino", command=lambda: add_produccion_bovino(root))
+   btn_addsanitaria.grid(column=0, row=3)
+
+   btn_addsanitaria = Button(my_addmenu, text="Añadir Reporte Productivo", command=lambda: add_reporte_productivo(root))
+   btn_addsanitaria.grid(column=0, row=4)
+
    btn_regresar = Button(my_addmenu, text="Regresar", command=lambda: create_menu(root))
-   btn_regresar.grid(column=0, row=3)
+   btn_regresar.grid(column=0, row=5)
+
 
 def see_inv(root):
     my_seeinvmenu = Frame(root)
@@ -296,8 +411,47 @@ def see_inv(root):
 def see_pro(root):
     my_seeinvmenu = Frame(root)
     my_seeinvmenu.grid(column=0, row=0, sticky="nsew")
+    user = Label(my_seeinvmenu, text="Nro. Arete: ", relief=RAISED)
+
+    user.grid(column=0, row=0)
+
+    user_input = Entry(my_seeinvmenu)
+    user_input.grid(column=1, row=0)
+    login_button = Button(my_seeinvmenu, text="Ingresar", command=lambda: see_rep_prod(user_input.get(), root))
+    # login_button.pack()
+
+    login_button.grid(column=0, row=2)
+def see_rep_prod(id,root):
+    my_seeinvmenu = Frame(root)
+    my_seeinvmenu.grid(column=0, row=0, sticky="nsew")
     root.title("Reporte Productivo del Ganado")
 
+    i = 0
+    j = 1
+    for Productivo in fichas.productiva_list:
+
+        if id == Productivo.nro_arete:
+            c0 = Label(my_seeinvmenu, text="Ficha " + str(j))
+            c0.grid(column=0, row=i)
+
+            i = i + 1
+            c2 = Label(my_seeinvmenu, text="Litros")
+            c2.grid(column=0, row=i)
+            c12 = Label(my_seeinvmenu, text=Productivo.litros)
+            c12.grid(column=1, row=i)
+            i = i + 1
+            c3 = Label(my_seeinvmenu, text="Fecha")
+            c3.grid(column=0, row=i)
+            c13 = Label(my_seeinvmenu, text=Productivo.fecha)
+            c13.grid(column=1, row=i)
+            i = i + 1
+            j = j + 1
+
+    btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
+    btn_regresar.grid(column=0, row=i)
+
+
+"""
     hemc= Label( my_seeinvmenu, text="Número de Arete")
     hemc.grid(column=0, row=0)
 
@@ -307,8 +461,7 @@ def see_pro(root):
     macc = Label(my_seeinvmenu, text="Fecha")
     macc.grid(column=2, row=0)
 
-    btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
-    btn_regresar.grid(column=0, row=1)
+    """
 
 def see_rep(root):
     my_seeinvmenu = Frame(root)
@@ -504,6 +657,37 @@ def see_peso(id_vaca,root):
     btn_regresar = Button(my_seeficha2, text="Regresar", command=lambda: create_seemenu(root))
     btn_regresar.grid(column=0, row=4)
 
+def see_productivo_animal(id_vaca, root):
+    my_seeficha2 = Frame(root)
+    my_seeficha2.grid(column=0, row=0, sticky="nsew")
+    vaquita = buscar_vaca_retvaca(id_vaca)
+    arete = Label(my_seeficha2, text="Diaria: ")
+    arete.grid(column=0, row=0)
+
+    arete1 = Label(my_seeficha2, text=vaquita.ficha_productiva.diaria)
+    arete1.grid(column=1, row=0)
+
+    especie = Label(my_seeficha2, text="Semanal: ")
+    especie.grid(column=0, row=1)
+
+    especie1 = Label(my_seeficha2, text=vaquita.ficha_productiva.semanal)
+    especie1.grid(column=1, row=1)
+
+    raza = Label(my_seeficha2, text="Mensual: ")
+    raza.grid(column=0, row=2)
+
+    raza1 = Label(my_seeficha2, text=vaquita.ficha_productiva.mensual)
+    raza1.grid(column=1, row=2)
+
+    sexo = Label(my_seeficha2, text="Anual: ")
+    sexo.grid(column=0, row=3)
+
+    sexo1 = Label(my_seeficha2, text=vaquita.ficha_productiva.anual)
+    sexo1.grid(column=1, row=3)
+
+    btn_regresar = Button(my_seeficha2, text="Regresar", command=lambda: create_seemenu(root))
+    btn_regresar.grid(column=0, row=4)
+
 
 def see_inf(root):
     my_seeinfmenu = Frame(root)
@@ -522,8 +706,12 @@ def see_inf(root):
     btn_ficha1 = Button(my_seeinfmenu, text="Peso del Bovino", command=lambda: see_peso(arete_input.get(), root))
     btn_ficha1.grid(column=1, row=1)
 
+    btn_ficha2 = Button(my_seeinfmenu, text = "Produccion del Bovino", command = lambda: see_productivo_animal(arete_input.get(), root))
+    btn_ficha2.grid(column=2,row=1)
+
     btn_regresar = Button(my_seeinfmenu, text="Regresar", command=lambda: create_seemenu(root))
     btn_regresar.grid(column=0, row=2)
+
 
 def see_venani(root):
     my_venmenu = Frame(root)

@@ -1,5 +1,6 @@
 from fichas import Peso
 from fichas import Sanitaria
+from fichas import Productiva
 
 vaca_list = list();
 
@@ -14,6 +15,7 @@ class Vaca():
         self.nro_arete_padre = list[6]
         self.ficha_peso = Peso(self.fecha_ncto)
         self.ficha_sanitaria = Sanitaria(self.nro_arete)
+        self.ficha_productiva = Productiva()
 
     def modify_weight(self, another_list):
         self.ficha_peso.destete = another_list[0]
@@ -30,3 +32,6 @@ class Vaca():
         self.ficha_sanitaria.tratamiento = listita[5]
         self.ficha_sanitaria.diagnostico = listita[6]
         self.ficha_sanitaria.observaciones = listita[7]
+
+    def modify_productiva(self, valor):
+        self.ficha_productiva.set_productiva(valor)

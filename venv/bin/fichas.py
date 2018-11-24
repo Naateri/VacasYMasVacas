@@ -41,14 +41,27 @@ class Sanitaria():
 
 
 class Productiva():
-    def __init__(self, list):
-        self.name = list[0]
-        self.dni = list[1]
-        self.email = list[2]
-        self.fundo_name = list[3]
-        self.password = list[4]
-        # user_list.append(self)
+    def __init__(self):
+        self.diaria = 0
+        self.semanal = 0
+        self.mensual = 0
+        self.anual = 0
 
+    def set_productiva(self,value):
+        self.diaria = value
+        self.semanal = str(int(value)*7)
+        self.mensual = str(int(value)*30)
+        self.anual = str(int(value)*365)
+
+class Rep_Productivo():
+    def __init__(self, nro_arete):
+        self.nro_arete = nro_arete
+        self.litros = 0
+        self.fecha = 0
+
+    def modify_reporte(self, list):
+        self.litros = list[0]
+        self.fecha = list[1]
 
 class Reproductiva():
     def __init__(self, list):
@@ -97,3 +110,13 @@ sanitaria_list.append(reg_sanitario)
 reg_sanitario = Sanitaria('V731502')
 reg_sanitario.set_sanitaria(['09/10/2017','ninguno','37','60','120','ni leche lo va a salvar','no va a mejorar','le doy un día de vida'])
 sanitaria_list.append(reg_sanitario)
+
+reg_productivo = Rep_Productivo('V724502')
+reg_productivo.modify_reporte(['120', '02/02/2010'])
+productiva_list.append(reg_productivo)
+reg_productivo = Rep_Productivo('V7242502')
+reg_productivo.modify_reporte(['69', '01/01/2014'])
+productiva_list.append(reg_productivo)
+reg_productivo = Rep_Productivo('V731502')
+reg_productivo.modify_reporte(['81', '01/03/2014'])
+productiva_list.append(reg_productivo)

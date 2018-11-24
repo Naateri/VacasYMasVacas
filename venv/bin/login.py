@@ -30,7 +30,7 @@ def checking_login(username, password,root):
 
                 usuario1 = usuario
                 tkinter.messagebox.showinfo("Login", message)
-                menu.create_menu(root, usuario)
+                menu.create_menu(root, usuario1)
 
             else:
                 message = "Password equivocada"
