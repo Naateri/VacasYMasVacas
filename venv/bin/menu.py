@@ -5,6 +5,8 @@ import duenho
 import sys
 import vacas
 from vacas import Vaca
+import fichas
+
 vaca_list = list() #vacas
 test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V721314'])
 test_vaca1 = Vaca(['V722502','Vaca','Holstein','Hembra','09/09/1940','V721702','V121314'])
@@ -18,6 +20,22 @@ vaca_list.append(test_vaca2)
 vaca_list.append(test_vaca3)
 vaca_list.append(test_vaca4)
 
+
+def buscar_vaca(id): #returns index
+    for i in range( len(vaca_list)):
+        if (vaca_list[i].nro_arete == id):
+            return i
+
+def buscar_vaca_retvaca(id):
+    for vaca in vaca_list:
+        if (vaca.nro_arete == id):
+            return vaca
+
+def mod_pesos(id_vaca, le_list):
+    vaquita = buscar_vaca(id_vaca)
+    #vacaa = vaca_list[vaquita]
+    vaca_list[vaquita].modify_weight(le_list)
+    print ('vaquita peso destete: ' + vaca_list[vaquita].ficha_peso.destete)
 
 def create_vaca(l1, root): #root is tk()
     la_vaca = Vaca(l1)
@@ -90,7 +108,7 @@ def add_peso(root):
     add_peso.grid(column=0, row=0, sticky="nsew")
     root.title("Crear bovino")
 
-    nacimiento = Label(add_peso, text="Número de nacimiento: ")
+    nacimiento = Label(add_peso, text="Id vaca: ")
     nacimiento.grid(column=0, row=0)
 
     nacimiento_input = Entry(add_peso)
@@ -122,6 +140,10 @@ def add_peso(root):
 
     btn_regresar = Button(add_peso, text="Regresar", command=lambda: create_addmenu(root))
     btn_regresar.grid(column=0, row=6)
+
+    btn_crear = Button(add_peso, text='Agregar Peso', command=lambda: mod_pesos(nacimiento_input.get(), [destete_input.get(), anho_input.get(),
+                                                                                                         dos_input.get(), faenado_input.get()]))
+    btn_crear.grid(column=1,row=6)
 
     raise_frame(add_peso)
 
