@@ -56,7 +56,7 @@ def mod_pesos(id_vaca, le_list):
 def mod_sanitaria(id_vaca, le_list):
     vaquita = buscar_vaca(id_vaca)
     vaca_list[vaquita].modify_sanitaria(le_list)
-    print ('Ficha Sanitaria ')
+    print ('Ficha Sanitaria ' + vaca_list[vaquita].ficha_sanitaria.fecha)
 
 
 def create_vaca(l1, root): #root is tk()
@@ -229,7 +229,7 @@ def add_sanitaria(root):
     observaciones_input.grid(column=1, row=8)
 
     btn_crear = Button(add_sanitaria, text='Agregar Información Sanitaria', command=lambda: mod_sanitaria(arete_input.get(),
-    [fecha_input.get(), signos_input.get(),peso_input.get(), temp_input.get(),
+    [fecha_input.get(), peso_input.get(), signos_input.get(), temp_input.get(),
     frecuencia_input.get(),tratamiento_input.get(),diagnostico_input.get(),observaciones_input.get()]))
     btn_crear.grid(column=0,row=9)
 
