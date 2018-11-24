@@ -4,7 +4,8 @@ from user import Usuario
 import menu
 
 user_list = list() #usuarios
-test_user = Usuario(['Renato Postigo','1234','renato@gg.com','0000','0000'])
+test_user = Usuario(['Renato Postigo','1234','renato@gg.com','mi super fundo ammigo','0000'])
+user_list.append(test_user)
 
 def raise_frame(frame):
     frame.tkraise()
@@ -30,6 +31,11 @@ def checking_login(username, password,root):
         if usuario.dni == username:
             if usuario.password == password:
                 message = "Bienvenido/a " + usuario.name
+
+                usuario1 = usuario
+                tkinter.messagebox.showinfo("Login", message)
+                menu.create_menu(root, usuario)
+
             else:
                 message = "Password equivocada"
             break
@@ -38,7 +44,7 @@ def checking_login(username, password,root):
 
 
     #tkinter.messagebox.showinfo("Login", message)
-    menu.create_menu(root)
+    #menu.create_menu(root)
 
 
 def create_account(root):

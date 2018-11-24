@@ -1,7 +1,8 @@
-
 from tkinter import *
 import tkinter.messagebox
 from user import Usuario
+import duenho
+import sys
 
 
 def raise_frame(frame):
@@ -414,15 +415,32 @@ def create_findmenu(root) :
     message = "Buscar Menu"
     tkinter.messagebox.showinfo("Creando", message)
 
-def create_infomenu(root) :
-    message = "Informacion Menu"
-    tkinter.messagebox.showinfo("Creando", message)
+def create_infomenu(root, usuario) :
+    #message = "Informacion Menu"
+    #tkinter.messagebox.showinfo("Creando", message)
+
+    infomenu = Frame(root)
+    infomenu.grid(column=0,row=0,sticky="nsew")
+    root.title("Visualizar informacion")
+
+    btn_ver_duenho = Button(infomenu, text="Visualizar datos del duenho", command=lambda: duenho.visualizar_datos_duenho(root,usuario))
+    btn_ver_duenho.grid(column=0, row=0)
+
+    btn_ver_fundo = Button(infomenu, text="Visualizar datos del fundo", command=lambda: duenho.visualizar_datos_fundo(root,usuario))
+    btn_ver_fundo.grid(column=0, row=1)
+
+    btn_volver = Button(infomenu, text="Regresar", command=lambda: create_menu(root,usuario))
+    btn_volver.grid(column=0,row=2)
+
+    infomenu.tkraise()
+
 
 def exit(root) :
     message = "Menu"
     tkinter.messagebox.showinfo("Saliendo", message)
+    sys.exit()
 
-def create_menu(root):
+def create_menu(root, usuario = 0):
 
     my_menu = Frame(root)
     my_menu.grid(column=0, row=0, sticky="nsew")
@@ -440,9 +458,9 @@ def create_menu(root):
     btn_find = Button(my_menu, text="Buscar", command = lambda:create_findmenu(root))
     btn_find.grid(column = 0, row = 3)
 
-    btn_info = Button(my_menu, text="Información", command = lambda:create_infomenu(root))
+    btn_info = Button(my_menu, text="Información", command = lambda:create_infomenu(root, usuario))
     btn_info.grid(column = 0, row = 4)
 
     btn_exit= Button(my_menu, text="Cerrar", command = lambda:exit(root))
     btn_exit.grid(column = 0, row = 5)
-
+    raise_frame(my_menu)
