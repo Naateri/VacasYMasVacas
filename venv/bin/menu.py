@@ -3,7 +3,26 @@ import tkinter.messagebox
 from user import Usuario
 import duenho
 import sys
+import vacas
+from vacas import Vaca
+vaca_list = list() #usuarios
+test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V721314'])
+test_vaca1 = Vaca(['V722502','Guillermo','Holstein','Undefined','09/09/1940','V721702','V121314'])
+test_vaca2 = Vaca(['V731502','Guillermito','Holstein','Hembrita','07/12/1978','V721702','V121314'])
+test_vaca3 = Vaca(['V789718','Toro','Holstein','Macho','01/10/1913','V721749','V121589'])
+test_vaca4 = Vaca(['V145574','Vaca','Holstein','Macho','02/07/1950','V721705','V121485'])
 
+vaca_list.append(test_vaca)
+vaca_list.append(test_vaca1)
+vaca_list.append(test_vaca2)
+vaca_list.append(test_vaca3)
+vaca_list.append(test_vaca4)
+
+
+def create_vaca(l1, root): #root is tk()
+    la_vaca = Vaca(l1)
+    vaca_list.append(la_vaca)
+    tkinter.messagebox.showinfo(str(l1[0]), "Vaca creada")
 
 def raise_frame(frame):
     frame.tkraise()
@@ -40,22 +59,28 @@ def add_info(root):
     fecha = Label(add_info, text="Fecha de nacimiento: ")
     fecha.grid(column=0, row=4)
 
-    fecha_input = Entry(add_info, show="*")
+    fecha_input = Entry(add_info)
     fecha_input.grid(column=1, row=4)
 
     aretema = Label(add_info, text="Nro de arete de la madre: ")
     aretema.grid(column=0, row=5)
 
-    aretema_input = Entry(add_info, show="*")
+    aretema_input = Entry(add_info)
     aretema_input.grid(column=1, row=5)
 
-   # btn_confirm = Button(add_info, text="Confirmar", command=lambda: create_user(
-    #    [arete_input.get(), especie_input.get(), raza_input.get(), sexo_input.get(),
-    #     fecha_input.get(), aretema_input.get()], root))
-    #btn_confirm.grid(column=1, row=7)
+    aretepa = Label(add_info, text="Nro de arete del padre: ")
+    aretepa.grid(column=0, row=6)
 
-    btn_regresar = Button(add_info, text="Regresar", command=lambda:create_addmenu(root))
-    btn_regresar.grid(column=0, row=6)
+    aretepa_input = Entry(add_info)
+    aretepa_input.grid(column=1, row=6)
+
+    btn_confirm = Button(add_info, text="Crear", command=lambda: create_vaca(
+        [arete_input.get(), especie_input.get(), raza_input.get(), sexo_input.get(),
+         fecha_input.get(), aretema_input.get(), aretepa_input.get()], root))
+    btn_confirm.grid(column=0, row=7)
+
+    btn_regresar = Button(add_info, text="Regresar", command=lambda: create_addmenu(root))
+    btn_regresar.grid(column=1, row=7)
 
     raise_frame(add_info)
 
@@ -93,12 +118,6 @@ def add_peso(root):
 
     faenado_input = Entry(add_peso, show="*")
     faenado_input.grid(column=1, row=4)
-
-
-    # btn_confirm = Button(add_peso, text="Confirmar", command=lambda: create_user(
-    #    [nacimiento_input.get(), destete_input.get(), anho_input.get(), dos_input.get(),
-    #     faenado_input.get(), nacimientoma_input.get()], root))
-    # btn_confirm.grid(column=1, row=7)
 
     btn_regresar = Button(add_peso, text="Regresar", command=lambda: create_addmenu(root))
     btn_regresar.grid(column=0, row=6)
