@@ -56,6 +56,7 @@ def mod_pesos(id_vaca, le_list):
 def mod_sanitaria(id_vaca, le_list):
     vaquita = buscar_vaca(id_vaca)
     vaca_list[vaquita].modify_sanitaria(le_list)
+    fichas.sanitaria_list.append(vaca_list[vaquita].ficha_sanitaria)
     print ('Ficha Sanitaria ' + vaca_list[vaquita].ficha_sanitaria.fecha)
 
 
