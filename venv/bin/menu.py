@@ -105,8 +105,6 @@ def add_peso(root):
 
     raise_frame(add_peso)
 
-
-
 def add_sanitaria(root):
     # message = "Visualizar Menu"
     tkinter.messagebox.showinfo("Añadir Sanitaria ","Agregando ficha sanitaria del Bovino")
