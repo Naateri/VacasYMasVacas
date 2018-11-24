@@ -17,7 +17,7 @@ test_vaca = Vaca(['V724502','Vaca','Holstein','Hembra','09/09/2016','V721302','V
 test_vaca1 = Vaca(['V722502','Vaca','Holstein','Hembra','09/09/1940','V721702','V121314'])
 test_vaca2 = Vaca(['V731502','Toro','Holstein','Hembra','07/12/1978','V721702','V121314'])
 test_vaca3 = Vaca(['V789718','Toro','Holstein','Macho','01/10/1913','V721749','V121589'])
-test_vaca4 = Vaca(['V145574','Vaca','Holstein','Macho','02/07/1950','V721705','V121485'])
+test_vaca4 = Vaca(['V145574','Vaca' ,'Holstein','Macho','02/07/1950','V721705','V121485'])
 
 vaca_list.append(test_vaca)
 vaca_list.append(test_vaca1)
