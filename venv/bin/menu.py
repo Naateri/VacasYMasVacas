@@ -31,6 +31,22 @@ def buscar_vaca_retvaca(id):
         if (vaca.nro_arete == id):
             return vaca
 
+def get_machos():
+    machos = 0
+    for vaca in vaca_list:
+        if (vaca.sexo == 'Macho'):
+            machos += 1
+
+    return str(machos)
+
+def get_hembras():
+    hembras = 0
+    for vaca in vaca_list:
+        if (vaca.sexo == 'Hembra'):
+            hembras += 1
+
+    return str(hembras)
+
 def mod_pesos(id_vaca, le_list):
     vaquita = buscar_vaca(id_vaca)
     #vacaa = vaca_list[vaquita]
@@ -238,28 +254,28 @@ def see_inv(root):
     my_seeinvmenu.grid(column=0, row=0, sticky="nsew")
     root.title("Inventario del Ganado")
 
-    hemc= Label( my_seeinvmenu, text="Número de Crías Hembras: ")
+    hemc= Label( my_seeinvmenu, text="Número de Hembras: ")
     hemc.grid(column=0, row=0)
 
-    hemc_num = Label( my_seeinvmenu,text="150" )
+    hemc_num = Label( my_seeinvmenu,text=get_hembras())
     hemc_num.grid(column=1, row=0)
 
-    macc = Label(my_seeinvmenu, text="Número de Crías Machos: ")
+    macc = Label(my_seeinvmenu, text="Número de Machos: ")
     macc.grid(column=0, row=1)
 
-    macc_num = Label(my_seeinvmenu, text="150")
+    macc_num = Label(my_seeinvmenu, text=get_machos())
     macc_num.grid(column=1, row=1)
 
-    hem = Label(my_seeinvmenu, text="Número de Hembras: ")
+    hem = Label(my_seeinvmenu, text="Número de Crías Hembras: ")
     hem.grid(column=0, row=2)
 
-    hem_num = Label(my_seeinvmenu, text="500")
+    hem_num = Label(my_seeinvmenu, text="No hay forma de saber por nuestra incompetencia")
     hem_num.grid(column=1, row=2)
 
-    mac = Label(my_seeinvmenu, text="Número de Machos: ")
+    mac = Label(my_seeinvmenu, text="Número de Crías Machos: ")
     mac.grid(column=0, row=3)
 
-    mac_num = Label(my_seeinvmenu, text="300")
+    mac_num = Label(my_seeinvmenu, text="No hay forma de saber por nuestra incompetencia")
     mac_num.grid(column=1, row=3)
 
     btn_regresar = Button(my_seeinvmenu, text="Regresar", command=lambda: create_seemenu(root))
