@@ -861,7 +861,7 @@ def exit(root) :
     tkinter.messagebox.showinfo("Saliendo", message)
     sys.exit()
 
-def create_menu(root, usuario = user_list[0]):
+def create_menu(root, usuario = user_list[len(user_list)-1]):
 
     my_menu = Frame(root)
     my_menu.grid(column=0, row=0, sticky="nsew")

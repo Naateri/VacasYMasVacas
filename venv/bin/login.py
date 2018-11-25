@@ -37,6 +37,7 @@ def checking_login(username, password,root):
             break
         else:
             message = "Has sido hackeado, tu password es " + password
+            #tkinter.messagebox.showinfo("Login", message)
 
 
     #tkinter.messagebox.showinfo("Login", message)
