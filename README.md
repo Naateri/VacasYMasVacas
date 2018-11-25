@@ -1,12 +1,14 @@
 # VacasYMasVacas
 
-Proyecto final Ingeniería de Software I: Gestor lechero
+## Proyecto final Ingeniería de Software I: Gestor lechero
 
-Prototipo del software final.
+### Prototipo del software final.
 
 Creado utilizando python3 y la librería tkinter.
 
-Para correrlo: run main.py
+Para correrlo: run venv/bin/main.py
+
+Necesario tener python3 y la librería tkinter para python3.
 
 Se puede crear una cuenta nueva, nuevas vaquitas/bovinos, añadir la ficha de peso de un animal, añadirle fichas sanitarias, de producción, y crear reportes productivos. Se pueden visualizar todos estos datos, además de también el inventario de ganado (cuántas hembras y machos hay), la información del dueño (usuario) y la información de su fundo.
 
@@ -29,4 +31,5 @@ Información adicional
   * V731502
 
 
+Por defecto todas las búsquedas de visualización de animales se utilizará su número de arete. La recomendación es utilizar un código de la forma 'Vnúmero'. 
 
